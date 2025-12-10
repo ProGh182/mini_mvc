@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /ecommerce/public/
+    
+    # Éviter de réécrire les fichiers et dossiers réels
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # Rerouter toutes les requêtes vers index.php
+    RewriteRule ^(.*)$ index.php?$1 [QSA,L]
+</IfModule>
